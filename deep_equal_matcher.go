@@ -1,9 +1,8 @@
 package matchers
 
 import (
-	"fmt"
-
 	"github.com/juju/testing/checkers"
+	"github.com/onsi/gomega/format"
 )
 
 // DeepEqual uses github.com/juju/testing's reimplementation of
@@ -32,14 +31,14 @@ type deepMatcher struct {
 }
 
 func (d *deepMatcher) Match(actual interface{}) (bool, error) {
-	match, err := checkers.DeepEqual(d.expected, actual)
+	match, err := checkers.DeepEqual(actual, d.expected)
 	d.explanation = err
 	return match, nil
 }
 
 func (d *deepMatcher) FailureMessage(actual interface{}) string {
-	return fmt.Sprintf("Expected %v to deeply equal %v.\nReason: %q",
-		d.expected, actual, d.explanation)
+	return format.Message(actual, "to deeply equal", d.expected) +
+		"\n" + d.explanation.Error()
 }
 
 func (d *deepMatcher) NegatedFailureMessage(actual interface{}) string {
