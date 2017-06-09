@@ -21,8 +21,7 @@ var tests []Test
 func init() {
 	tests = []Test{
 		{1, 1, true, ""},
-		{1, 2, false, "Expected 1 to deeply equal 2.\n" +
-			`Reason: "mismatch at top level: unequal; obtained 1; expected 2"`},
+		{1, 2, false, "Expected\n    <int>: 2\nto deeply equal\n    <int>: 1\nmismatch at top level: unequal; obtained 2; expected 1"},
 	}
 }
 
@@ -42,10 +41,10 @@ func TestFailureMessage(t *testing.T) {
 		_, _ = matcher.Match(test.b)
 
 		expectedMsg := test.message
-		actualMsg := matcher.FailureMessage(test.b)
 		if expectedMsg == "" {
 			continue
 		}
+		actualMsg := matcher.FailureMessage(test.b)
 		if expectedMsg != actualMsg {
 			t.Errorf("expected matcher message %q, got %q.", expectedMsg, actualMsg)
 		}
