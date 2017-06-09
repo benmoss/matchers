@@ -11,7 +11,7 @@ Expected
         Age: 56,
         Badge: {ID: 666, Color: "shiny"},
     }
-to deeply equal
+to equal
     <main_test.User>: {
         Name: "david duchovny",
         Address: "santa monica",
