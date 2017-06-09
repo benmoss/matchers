@@ -4,20 +4,20 @@ Have you ever been in this situation, scratching your head over some
 trying to compare some complex data structures?
 
 ```
-    Expected
-      <main_test.User>: {
-          Name: "david duchovny",
-          Address: "santa monica",
-          Age: 56,
-          Badge: {},
-      }
-  to equal
-      <main_test.User>: {
-          Name: "david duchovny",
-          Address: "santa monica",
-          Age: 56,
-          Badge: {},
-      }
+Expected
+    <main_test.User>: {
+        Name: "david duchovny",
+        Address: "santa monica",
+        Age: 56,
+        Badge: {ID: 666, Color: "shiny"},
+    }
+to deeply equal
+    <main_test.User>: {
+        Name: "david duchovny",
+        Address: "santa monica",
+        Age: 56,
+        Badge: {ID: 666, Color: "shiny"},
+    }
 ```
 
 Well, you've come to the right place. The place that can answer ALL your questions 
@@ -25,7 +25,7 @@ Well, you've come to the right place. The place that can answer ALL your questio
 
 
 ```
-mismatch at .Badge: type mismatch *main_test.FBI vs main_test.FBI; obtained &main_test.FBI{}; expected main_test.FBI{}
+mismatch at .Badge: type mismatch main_test.FBI vs *interface {}; obtained main_test.FBI{ID:666, Color:"shiny"}; expected (*interface {})(0xc420130728)
 ```
 
 D'oh!
