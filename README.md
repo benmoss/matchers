@@ -33,5 +33,14 @@ D'oh!
 That's right, this library provides only a single [Gomega](https://onsi.github.io/gomega/) matcher, but it's going to be
 the last matcher you ever need.
 
+To get started:
+
+```
+go get -u github.com/benmoss/matchers
+```
+
+and just swap your `Expect(...).To(Equal(...))` with a lil
+`Expect(...).To(matchers.DeepEqual(...))`, and you're off to the races!
+
 It adapts the DeepEqual function from [juju/testing](https://github.com/juju/testing) so has all the same
 caveats as [their implementation](https://godoc.org/github.com/juju/testing/checkers#DeepEqual).
