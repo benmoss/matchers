@@ -1,7 +1,6 @@
 # matchers
 
-Have you ever been in this situation, scratching your head over some
-trying to compare some complex data structures?
+Have you ever been in this situation, scratching your head trying to compare some complex data structures?
 
 ```
 Expected
