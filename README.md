@@ -20,10 +20,24 @@ to equal
 ```
 
 Well, you've come to the right place. The place that can answer ALL your questions 
-(so long as they have to do with figuring out why values aren't equal).
+(so long as they have to do with figuring out why values aren't equal). Because now you can get *actually helpful* errors, like this one:
 
 
 ```
+Expected
+    <main_test.User>: {
+        Name: "david duchovny",
+        Address: "santa monica",
+        Age: 56,
+        Badge: {ID: 666, Color: "shiny"},
+    }
+to deep equal
+    <main_test.User>: {
+        Name: "david duchovny",
+        Address: "santa monica",
+        Age: 56,
+        Badge: {ID: 666, Color: "shiny"},
+    }
 mismatch at .Badge: type mismatch main_test.FBI vs *interface {}; obtained main_test.FBI{ID:666, Color:"shiny"}; expected (*interface {})(0xc420130728)
 ```
 
