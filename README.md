@@ -38,10 +38,10 @@ to deep equal
         Age: 56,
         Badge: {ID: 666, Color: "shiny"},
     }
-mismatch at .Badge: type mismatch main_test.FBI vs *interface {}; obtained main_test.FBI{ID:666, Color:"shiny"}; expected (*interface {})(0xc420130728)
+mismatch at .Badge: type mismatch main_test.FBIBadge vs *interface {}; obtained main_test.FBI{ID:666, Color:"shiny"}; expected (*interface {})(0xc420130728)
 ```
 
-D'oh!
+D'oh! I hate it when I use a `FBIBadge` when I mean to use an `*interface{}`! (This is actually one of the more cryptic explanations we can get, but basically one instance has a pointer reference for its Badge slot, and the other has a value reference. This happened to me recently, and it sucked.)
 
 That's right, this library provides only a single [Gomega](https://onsi.github.io/gomega/) matcher, but it's going to be
 the last matcher you ever need.
