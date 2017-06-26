@@ -1,0 +1,6 @@
+[submodule "vendor/github.com/juju/loggo"]
+	path = vendor/github.com/juju/loggo
+	url = https://github.com/juju/loggo
+[submodule "vendor/github.com/juju/testing"]
+	path = vendor/github.com/juju/testing
+	url = https://github.com/juju/testing
